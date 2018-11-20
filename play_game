@@ -1,0 +1,30 @@
+import bulls_and_cows as b
+
+def main():
+# Do not change this function!
+    print('Welcome to Bulls and Cows death match!')
+    again='y'
+    while (again=='y'):
+          play_game()
+          again=input('would you like to play again? (y/n)')
+    print('So long sucker!')
+
+
+def play_game():
+### Plays one interactive game of bulls and cows on the console###    
+#call the main function to run the game
+    
+    answer = b.generate_secret() ### defining necessary variables for the while loop below
+    bulls = 0
+
+    while bulls < 4:
+        guess = str(input("Please input your guess here: "))
+        bulls = b.how_many_bulls(answer,guess)
+        cows = b.how_many_cows(answer,guess)
+        print ('bulls: ', bulls,  'cows: ', cows)
+    
+    else:
+        print ('you won! ')
+     
+
+main()
