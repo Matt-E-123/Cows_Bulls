@@ -1,0 +1,30 @@
+import random
+
+def generate_secret():
+### Generates a 4 digit number with no repeat digits. It converts the number to a string and returns it###
+    secret_input = random.sample(range(10), 4) ###selecting a random four digit number that is not 
+    secret= ''.join(map(str, secret_input)) ##turn into string
+    
+    return secret
+
+
+def how_many_bulls(answer,guess):
+### Returns the number of bulls the guess earns when the secret number is answer. Both answer and guess should be strings###
+    
+    bulls = 0
+    for i in range(len(answer)):
+        if answer[i] == guess[i]: ###checks index of both nuymbers against each other
+            bulls +=1
+            
+    return bulls
+
+def how_many_cows(answer, guess):
+###Returns the number of bulls the guess earns when the###
+###secret number is answer. Both answer and guess should be strings###
+   
+    cows = 0
+    for i in range(len(answer)):
+        if answer[i] in guess and answer[i] != guess[i]: ###sets index of answer against the entire set of guess minus the bulls
+            cows += 1
+
+    return cows
